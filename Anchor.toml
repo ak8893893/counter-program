@@ -2,13 +2,13 @@
 seeds = false
 skip-lint = false
 [programs.localnet]
-counter_program = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+counter_program = "2GzbhseMLbLUXNL7oSZJ1mYQSuCgPWoJUPaZmuQD1Q7d"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "devnet"
 wallet = "/home/ak/.config/solana/id.json"
 
 [scripts]
