@@ -5,6 +5,7 @@ import { AddEvenToCounter } from "components/AddEvenToCounter";
 import { MinusOddToCounter } from "components/MinusOddToCounter";
 import { CloseCounter } from "components/CloseCounter";
 import useAnchorProgram from "hooks/useAnchorProgram";
+import { TimesEvenToCounter } from "components/TimesEvenToCounter";
 
 export const CounterView: FC = ({}) => {
   const [counterValue, setCounterValue] = useState<number>(-1);
@@ -42,6 +43,7 @@ export const CounterView: FC = ({}) => {
           <InitializeCounter setCounterValue={setCounterValue} />
           <AddEvenToCounter setCounterValue={setCounterValue} />
           <MinusOddToCounter setCounterValue={setCounterValue} />
+          <TimesEvenToCounter setCounterValue={setCounterValue} />
           <CloseCounter setCounterValue={setCounterValue} />
         </div>
       </div>

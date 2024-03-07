@@ -72,4 +72,22 @@ describe("counter-program", () => {
     console.log("The account counter is",account.value.toString(10), "now ");
     assert.ok(account.value.eq(new anchor.BN(1585)));
   });
+
+  // 測試用例：向我的計數器乘上一個偶數
+  it("Times an even number to my counter", async () => {
+    // 調用addEven方法，向計數器乘上30
+    const tx = await program.methods
+      .timesEven(new anchor.BN(30))
+      .accounts({
+        myCounter: myCounter.publicKey, // 指定計數器賬戶
+      })
+      .rpc();
+    console.log("TimesEven transaction signature:", tx);
+    console.log(`SolScan transaction link: https://solscan.io/tx/${tx}?cluster=devnet`);
+
+    // 驗證計數器賬戶的值是否正確更新
+    const account = await program.account.myCounter.fetch(myCounter.publicKey);
+    console.log("The account counter is",account.value.toString(10), "now ");
+    assert.ok(account.value.eq(new anchor.BN(47550)));
+  });
 });

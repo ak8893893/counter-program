@@ -71,6 +71,27 @@ export type MyProgram = {
       ]
     },
     {
+      "name": "timesEven",
+      "accounts": [
+        {
+          "name": "myCounter",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "value",
+          "type": "u64"
+        }
+      ]
+    },
+    {
       "name": "close",
       "accounts": [
         {
@@ -172,6 +193,27 @@ export const IDL: MyProgram = {
     },
     {
       "name": "minusOdd",
+      "accounts": [
+        {
+          "name": "myCounter",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "value",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "timesEven",
       "accounts": [
         {
           "name": "myCounter",

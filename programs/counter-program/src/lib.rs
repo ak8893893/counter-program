@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 
 // 宣告合約的ID
-declare_id!("2GzbhseMLbLUXNL7oSZJ1mYQSuCgPWoJUPaZmuQD1Q7d");
+declare_id!("4zJZ6pYJ7VzqoUZzx1rXPYG1Zom6XDjNvGqMgWv8ryTJ");
 
 // 定義主要的程序模塊
 #[program]
@@ -35,6 +35,16 @@ pub mod counter_program {
 
         Ok(())
     }
+
+    // 從計數器乘上一個數，只接受偶數
+    pub fn times_even(ctx: Context<TimesEven>,value: u64) -> Result<()>{
+        // 檢查值是否為偶數
+        require!(value % 2 == 0, ErrorCode::ValueIsNotEven);
+        let my_counter = &mut ctx.accounts.my_counter;
+        my_counter.value = my_counter.value.checked_mul(value).unwrap();
+
+        Ok(())
+    }
 }
 
 // 定義初始化交易時需要的賬戶結構
@@ -61,6 +71,13 @@ pub struct AddEven<'info>{
 // 從計數器減去奇數值的賬戶結構
 #[derive(Accounts)]
 pub struct MinusOdd<'info>{
+    #[account(mut)]
+    pub my_counter: Account<'info,MyCounter>,
+}
+
+// 添加計數器乘上偶數的賬戶結構
+#[derive(Accounts)]
+pub struct TimesEven<'info>{
     #[account(mut)]
     pub my_counter: Account<'info,MyCounter>,
 }
