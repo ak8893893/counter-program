@@ -38,5 +38,19 @@ Start the frontend
 cd app
 yarn
 yarn dev
-# open localhost:3000
+# open localhost:3000  (http://localhost:3000/)
 ```
+
+Use the frontend to test your Counter Program
+
+1. Connect your wallet (suggest using Phantom wallet).
+2. Change the wallet's network to the Devnet.
+3. Claim the airdrop if you don't have the testing sol in you wallet.
+![alt text](image.png)
+4. Click Counter to switch the page of counter Program.
+![alt text](image-1.png)
+5. Initialize an account.
+6. Add an even number into the account's value.
+7. Minus an odd number into the account's value.
+8. You can check you account's value on the front end or solscan with you Counter Address. For example: https://explorer.solana.com/address/2qASV856oDJE6yQBKRxAZuKUHjUoU52N656JmeFyoKqo/anchor-account?cluster=devnet
+![alt text](image-2.png)
